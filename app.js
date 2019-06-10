@@ -8,16 +8,16 @@ var dotenv = require('dotenv');
 dotenv.config();
 
 
-var indexRouter = require('./routes/index');
-var meetupRouter = require('./routes/meetup');
-
-var app = express();
-
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+var indexRouter = require('./routes/index');
+var meetupRouter = require('./routes/meetup');
+
+var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
