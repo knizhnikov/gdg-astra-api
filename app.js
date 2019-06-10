@@ -4,15 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const cors = require('cors');
 var dotenv = require('dotenv');
 dotenv.config();
 
-
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+app.use(cors());
+app.options('*', cors());
 
 var indexRouter = require('./routes/index');
 var meetupRouter = require('./routes/meetup');
