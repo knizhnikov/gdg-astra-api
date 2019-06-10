@@ -8,13 +8,13 @@ const cors = require('cors');
 var dotenv = require('dotenv');
 dotenv.config();
 
-app.use(cors());
-app.options('*', cors());
-
 var indexRouter = require('./routes/index');
 var meetupRouter = require('./routes/meetup');
 
 var app = express();
+
+app.use(cors());
+app.options('*', cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
