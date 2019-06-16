@@ -6,7 +6,7 @@ const groupName = 'GDG-Astrakhan';
 
 router.get('/events', async function (req, res, next) {
     try {
-        const url = `https://api.meetup.com/${groupName}/events?photo-host=public&scroll=future_or_past&fields=featured_photo&has_ended=true&sign=true&key=${process.env.MEETUP_API_KEY}`;
+        const url = `https://api.meetup.com/${groupName}/events?photo-host=public&status=past,upcoming&fields=featured_photo&sign=true&key=${process.env.MEETUP_API_KEY}`;
         response = await axios.get(url);
         res.send(response.data);
     } catch (e) {
